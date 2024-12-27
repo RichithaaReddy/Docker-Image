@@ -1,0 +1,12 @@
+# off python img from docker file
+FROM python:3.9-slim
+#set wrkng directory
+WORKDIR /app
+# copy the current directory contents to container at /app
+COPY ./app
+#install needed packages in req.txt
+RUN pip install flask
+#make port available to the world outside container
+EXPOSE 5000
+#run app.py when container launches
+CMD ["python",'app.py']
